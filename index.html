@@ -1,107 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis de Desempeño - Escuela Normal Del Distrito De Barranquilla</title>
-    <!-- Enlace a nuestra hoja de estilos CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análisis de Desempeño - Escuela Normal Del Distrito De Barranquilla</title>
+  <!-- Enlace a nuestra hoja de estilos CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="logo-qr.png">
 </head>
+
 <body>
 
-    <!-- Encabezado de la página con logo y títulos -->
-    <header>
-        <img src="logogec.png" alt="Logo Grupo Edúcate" id="logo">
-        <h1>Panel de Desempeño Académico</h1>
-        <h2>Escuela Normal Del Distrito De Barranquilla</h2>
-    </header>
+  <!-- Encabezado de la página con logo y títulos -->
+  <header>
+    <img src="logogec.png" alt="Logo Grupo Edúcate" id="logo">
+    <h1>Panel de Desempeño Académico</h1>
+    <h2>Escuela Normal Del Distrito De Barranquilla</h2>
+  </header>
 
-    <!-- Contenido principal de la aplicación -->
-    <main>
+  <!-- Contenido principal de la aplicación -->
+  <main>
 
-        <!-- Sección 1: Panel de consulta con todos los filtros -->
-        <section id="panel-consulta">
-            <form id="filtro-form">
-                <label for="calendario">Calendario:</label>
-                <select id="calendario" name="calendario">
-                    <!-- <option value="2025">2025</option> -->
-                </select>
+    <!-- Sección 1: Panel de consulta con todos los filtros -->
+    <section id="panel-consulta">
+      <form id="filtro-form">
+        <label for="calendario">Calendario:</label>
+        <select id="calendario" name="calendario">
+          <!-- <option value="2025">2025</option> -->
+        </select>
 
-                <label for="prueba">Prueba:</label>
-                <select id="prueba" name="prueba">
-                    <option value="todos">Todas</option>
-                    <!-- Las opciones se llenarán dinámicamente con JavaScript -->
-                </select>
+        <label for="prueba">Prueba:</label>
+        <select id="prueba" name="prueba">
+          <option value="todos">Todas</option>
+          <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
 
-                <label for="ciclo">Ciclo:</label>
-                <select id="ciclo" name="ciclo">
-                    <option value="todos">Todos</option>
-                    <option value="Ciclo-I">Ciclo-I (1°-3°)</option>
-                    <option value="Ciclo-II">Ciclo-II (4°-5°)</option>
-                    <option value="Ciclo-III">Ciclo-III (6°-7°)</option>
-                    <option value="Ciclo-IV">Ciclo-IV (8°-9°)</option>
-                    <option value="Ciclo-V">Ciclo-V (10°-11°)</option>
-                </select>
+        <label for="ciclo">Ciclo:</label>
+        <select id="ciclo" name="ciclo">
+          <option value="todos">Todos</option>
+          <option value="Ciclo-I">Ciclo-I (1°-3°)</option>
+          <option value="Ciclo-II">Ciclo-II (4°-5°)</option>
+          <option value="Ciclo-III">Ciclo-III (6°-7°)</option>
+          <option value="Ciclo-IV">Ciclo-IV (8°-9°)</option>
+          <option value="Ciclo-V">Ciclo-V (10°-11°)</option>
+        </select>
 
-                <label for="grado">Grado:</label>
-                <select id="grado" name="grado">
-                    <option value="todos">Todos</option>
-                    <!-- Las opciones se llenarán dinámicamente con JavaScript -->
-                </select>
+        <label for="grado">Grado:</label>
+        <select id="grado" name="grado">
+          <option value="todos">Todos</option>
+          <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
 
-                <label for="area">Área:</label>
-                <select id="area" name="area">
-                    <option value="todas">Todas</option>
-                    <!-- Las opciones se llenarán dinámicamente con JavaScript -->
-                </select>
+        <label for="area">Área:</label>
+        <select id="area" name="area">
+          <option value="todas">Todas</option>
+          <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
 
-                <button type="button" id="consultar-btn">Consultar</button>
-            </form>
-        </section>
+        <button type="button" id="consultar-btn">Consultar</button>
+      </form>
+    </section>
 
-        <!-- Sección 2: Contenedor para los gráficos de barras -->
-        <section id="resultados-visuales">
-            <div id="graficos-container">
-                <!-- Los gráficos se insertarán aquí dinámicamente desde JavaScript -->
-            </div>
-        </section>
-        
-        <!-- Sección 3: Contenedor para la tabla de estudiantes -->
-        <section id="seccion-tabla-estudiantes">
-            <h3>Detalle por Estudiante</h3>
-            <div id="tabla-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Estudiante</th>
-                            <th>Grupo</th>
-                            <th>L. Crítica</th>
-                            <th>Matemáticas</th>
-                            <th>C. Naturales</th>
-                            <th>Sociales</th>
-                            <th>Inglés</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabla-estudiantes-body">
-                        <!-- Las filas de estudiantes se insertarán aquí desde JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <!-- Sección 2: Contenedor para los gráficos de barras -->
+    <section id="resultados-visuales">
+      <div id="graficos-container">
+        <!-- Los gráficos se insertarán aquí dinámicamente desde JavaScript -->
+      </div>
+    </section>
 
-    </main>
+    <!-- Sección 3: Contenedor para la tabla de estudiantes -->
+    <section id="seccion-tabla-estudiantes">
+      <h3>Detalle por Estudiante</h3>
+      <div id="tabla-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Estudiante</th>
+              <th>Grupo</th>
+              <th>L. Crítica</th>
+              <th>Matemáticas</th>
+              <th>C. Naturales</th>
+              <th>Sociales</th>
+              <th>Inglés</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-estudiantes-body">
+            <!-- Las filas de estudiantes se insertarán aquí desde JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    <!-- Inclusión de las librerías externas y nuestro script principal -->
-    <!-- Se colocan al final para que la página cargue más rápido -->
+  </main>
 
-    <!-- Librería para crear gráficos (Chart.js) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Inclusión de las librerías externas y nuestro script principal -->
+  <!-- Se colocan al final para que la página cargue más rápido -->
 
-    <!-- Librería para leer archivos CSV (Papa Parse) -->
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <!-- Librería para crear gráficos (Chart.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Nuestro propio archivo JavaScript que contiene toda la lógica -->
-    <script src="app.js"></script>
+  <!-- Librería para leer archivos CSV (Papa Parse) -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+  <!-- Nuestro propio archivo JavaScript que contiene toda la lógica -->
+  <script src="app.js"></script>
 
 </body>
+
 </html>

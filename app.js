@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             configNiveles = await responseNiveles.json();
             console.log("Configuración de niveles cargada.");
 
-            const archivos = ['Consolidado_2023-2024.csv', 'Consolidado_2024-2025.csv'];
+            const archivos = ['Consolidado_2023-2024.csv'];
             let datosTransformados = [];
 
             for (const archivo of archivos) {
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     const areaEnMinusculas = area.toLowerCase();
                                     if (fila[areaEnMinusculas] !== undefined) {
                                         datosTransformados.push({
-                                            calendario: fila.calandario,
+                                            calendario: fila.calendario,
                                             prueba: fila.prueba,
                                             grado: fila.grado,
                                             grupo: fila.grupo,
@@ -99,10 +99,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function poblarFiltros() {
         if (datosCompletos.length === 0) return;
         const pruebas = [...new Set(datosCompletos.map(d => d.prueba))].sort();
+        const calendarios = [...new Set(datosCompletos.map(d => d.Calendario))].sort()
         const grados = [...new Set(datosCompletos.map(d => d.grado))].sort((a, b) => a - b);
         const areas = [...new Set(datosCompletos.map(d => d.area))].sort();
         const pruebaSelect = document.getElementById('prueba');
         pruebas.forEach(p => pruebaSelect.add(new Option(p, p)));
+        const calendarioSelect = document.getElementById('calendario');
+        calendarios.forEach(p => calendarioSelect.add(new Option(c, c)));
         const gradoSelect = document.getElementById('grado');
         grados.forEach(g => gradoSelect.add(new Option(`Grado ${g}`, g)));
         const areaSelect = document.getElementById('area');

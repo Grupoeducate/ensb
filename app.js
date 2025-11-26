@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const notaNum = parseFloat(nota);
         if (!niveles || isNaN(notaNum)) return { nivel: "N/A", color: '#cccccc' };
         for (const nivel of niveles) {
-            if (notaNum >= nivel.min && notaNum <= nivel.max) return nivel;
+            if (notaNum <= nivel.max) return nivel;
         }
         return { nivel: "N/A", color: '#cccccc' };
     }

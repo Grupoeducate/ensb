@@ -99,15 +99,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function poblarFiltros() {
         if (datosCompletos.length === 0) return;
         const pruebas = [...new Set(datosCompletos.map(d => d.prueba))].sort();
-        const calendarios = [...new Set(datosCompletos.map(d => d.Calendario))].sort()
-        const grados = [...new Set(datosCompletos.map(d => d.grado))].sort((a, b) => a - b);
-        const areas = [...new Set(datosCompletos.map(d => d.area))].sort();
         const pruebaSelect = document.getElementById('prueba');
         pruebas.forEach(p => pruebaSelect.add(new Option(p, p)));
+        
+        const calendarios = [...new Set(datosCompletos.map(d => d.calendario))].sort()
         const calendarioSelect = document.getElementById('calendario');
-        calendarios.forEach(p => calendarioSelect.add(new Option(c, c)));
+        calendarios.forEach(c => calendarioSelect.add(new Option(c, c)));
+        
+        
+        const grados = [...new Set(datosCompletos.map(d => d.grado))].sort((a, b) => a - b);
         const gradoSelect = document.getElementById('grado');
         grados.forEach(g => gradoSelect.add(new Option(`Grado ${g}`, g)));
+        
+        const areas = [...new Set(datosCompletos.map(d => d.area))].sort();
         const areaSelect = document.getElementById('area');
         areas.forEach(a => areaSelect.add(new Option(a, a)));
     }
@@ -123,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const area = document.getElementById('area').value;
 
         const datosFiltrados = datosCompletos.filter(item =>
-            (item.calendario === calendario) &&
+            (item.calendario === Number(calendario)) &&
             (prueba === 'todos' || item.prueba === prueba) &&
             (ciclo === 'todos' || item.ciclo === ciclo) &&
             (grado === 'todos' || item.grado.toString() === grado) &&

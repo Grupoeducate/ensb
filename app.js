@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             configNiveles = await responseNiveles.json();
             console.log("Configuración de niveles cargada.");
 
-            const archivos = ['Consolidado_2023-2024.csv'];
+            const archivos = ['PERIODICAS NORMAL DEL DISTRITO 2025.csv'];
             let datosTransformados = [];
 
             for (const archivo of archivos) {

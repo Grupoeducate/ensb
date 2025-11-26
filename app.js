@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 grupos[clave].contador++;
             }
         });
-        const labels = Object.keys(grupos).sort();
+        const labels = Object.keys(grupos).sort((a,b)=>{return Number(a.grado) - Number(b.grado)});
         const promedios = labels.map(clave => (grupos[clave].contador > 0 ? (grupos[clave].suma / grupos[clave].contador) : 0));
         const coloresBarras = promedios.map((prom, index) => {
             const areaParaColor = (agruparPor === 'area') ? labels[index] : 'puntaje_global';
